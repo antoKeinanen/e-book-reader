@@ -3,13 +3,13 @@ import {
   type DefaultSession,
   type NextAuthOptions,
 } from "next-auth";
-
 import CredentialsProvider from "next-auth/providers/credentials";
+import assert from "assert";
+import * as argon2 from "argon2";
 
 import { env } from "~/env";
 import { getUserByName } from "./queries/user";
 import { CredentialsSchema } from "~/common/validators/credentialsValidator";
-import assert from "assert";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -54,6 +54,8 @@ export const authOptions: NextAuthOptions = {
 
           const user = await getUserByName(cred.username);
           assert(user);
+
+          assert(await argon2.verify(user.password, cred.password));
 
           return { name: user.username, id: user.id };
         } catch (ex) {
