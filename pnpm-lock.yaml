@@ -29,6 +29,9 @@ importers:
       '@trpc/server':
         specifier: next
         version: 11.0.0-rc.401
+      argon2:
+        specifier: ^0.40.3
+        version: 0.40.3
       geist:
         specifier: ^1.3.0
         version: 1.3.0(next@14.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -54,6 +57,9 @@ importers:
         specifier: ^3.23.3
         version: 3.23.8
     devDependencies:
+      '@types/bcrypt':
+        specifier: ^5.0.2
+        version: 5.0.2
       '@types/eslint':
         specifier: ^8.56.2
         version: 8.56.10
@@ -254,6 +260,10 @@ packages:
   '@panva/hkdf@1.1.1':
     resolution: {integrity: sha512-dhPeilub1NuIG0X5Kvhh9lH4iW3ZsHlnzwgwbOlgwQ2wG1IqFzsgHqmKPk3WzsdWAeaxKJxgM0+W433RmN45GA==}
 
+  '@phc/format@1.0.0':
+    resolution: {integrity: sha512-m7X9U6BG2+J+R1lSOdCiITLLrxm+cWlNI3HUFA92oLO77ObGNzaKdh8pMLqdZcshtkKuV84olNNXDfMc4FezBQ==}
+    engines: {node: '>=10'}
+
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
@@ -333,6 +343,9 @@ packages:
 
   '@trpc/server@11.0.0-rc.401':
     resolution: {integrity: sha512-cHNrdZSTxabIo9XZ+c2GUCVlJOa84DI7ElzLph0oMn8Tsrq9iep+YWyhuoBlQKNdoCiRFgsptdTIvozWGdaNFw==}
+
+  '@types/bcrypt@5.0.2':
+    resolution: {integrity: sha512-6atioO8Y75fNcbmj0G7UjI9lXN2pQ/IGJ2FWT4a/btd0Lk9lQalHLKhkgKVZ3r+spnmWUKfbMi1GEe9wyHQfNQ==}
 
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
@@ -491,6 +504,10 @@ packages:
 
   arg@5.0.2:
     resolution: {integrity: sha512-PYjyFOLKQ9y57JvQ6QLo8dAgNqswh8M1RMJYdQduT6xbWSgK36P/Z/v+p888pM69jMMfS8Xd8F6I1kQ/I9HUGg==}
+
+  argon2@0.40.3:
+    resolution: {integrity: sha512-FrSmz4VeM91jwFvvjsQv9GYp6o/kARWoYKjbjDB2U5io1H3e5X67PYGclFDeQff6UXIhUd4aHR3mxCdBbMMuQw==}
+    engines: {node: '>=16.17.0'}
 
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
@@ -1297,6 +1314,14 @@ packages:
       sass:
         optional: true
 
+  node-addon-api@8.0.0:
+    resolution: {integrity: sha512-ipO7rsHEBqa9STO5C5T10fj732ml+5kLN1cAG8/jdHd56ldQeGj3Q7+scUS+VHK/qy1zLEwC4wMK5+yM0btPvw==}
+    engines: {node: ^18 || ^20 || >= 21}
+
+  node-gyp-build@4.8.1:
+    resolution: {integrity: sha512-OSs33Z9yWr148JZcbZd5WiAXhh/n9z8TxQcdMhIOlpN9AhWpLfvVFO73+m77bBABQMaY9XSvIa+qk0jlI7Gcaw==}
+    hasBin: true
+
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
@@ -2011,6 +2036,8 @@ snapshots:
 
   '@panva/hkdf@1.1.1': {}
 
+  '@phc/format@1.0.0': {}
+
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
@@ -2081,6 +2108,10 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@trpc/server@11.0.0-rc.401': {}
+
+  '@types/bcrypt@5.0.2':
+    dependencies:
+      '@types/node': 20.14.2
 
   '@types/cookie@0.6.0': {}
 
@@ -2264,6 +2295,12 @@ snapshots:
       picomatch: 2.3.1
 
   arg@5.0.2: {}
+
+  argon2@0.40.3:
+    dependencies:
+      '@phc/format': 1.0.0
+      node-addon-api: 8.0.0
+      node-gyp-build: 4.8.1
 
   argparse@2.0.1: {}
 
@@ -3262,6 +3299,10 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+
+  node-addon-api@8.0.0: {}
+
+  node-gyp-build@4.8.1: {}
 
   normalize-path@3.0.0: {}
 
