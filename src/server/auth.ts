@@ -54,7 +54,8 @@ export const authOptions: NextAuthOptions = {
 
           const user = await getUserByName(cred.username);
           assert(user);
-          return { name: user.name, id: user.id };
+
+          return { name: user.username, id: user.id };
         } catch (ex) {
           console.error(ex);
           return null;
