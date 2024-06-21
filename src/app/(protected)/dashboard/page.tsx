@@ -1,15 +1,11 @@
-import { Button, buttonVariants } from "~/components/ui/button";
 import BookCarousel from "./_components/bookCarousel";
-import { PlusIcon } from "lucide-react";
-import { cn } from "~/lib/utils";
+import NewBookModal from "./_components/newBookModal";
 
 function DashboardPage() {
   return (
     <main>
-      <section className="flex justify-end pt-4 px-8">
-        <Button className={cn(buttonVariants({size: "lg"}), "gap-2 text-lg font-semibold")}>
-          <PlusIcon /> Add Book
-        </Button>
+      <section className="flex justify-end px-8 pt-4">
+        <NewBookModal />
       </section>
       <BookCarousel />
       <BookCarousel />
