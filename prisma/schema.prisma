@@ -11,4 +11,18 @@ model User {
   id       String @unique @default(cuid())
   username String @unique
   password String // Hashed password
+  books    Book[]
+}
+
+model Book {
+  id     String @unique @default(cuid())
+  title  String
+  author String
+
+  isbn      String?
+  image_url String?
+  file_url  String?
+
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String?
 }
